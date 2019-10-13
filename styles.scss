@@ -1,0 +1,132 @@
+/*
+Theme Name: My Theme
+Author: Lauren Williams
+*/
+
+$primary-color: #000;
+$primary-font: 'montserrat', sans-serif;
+$secondary-color: #fff;
+$secondary-font: 'open sans', sans-serif;
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 100% $primary-font;
+    color: $primary-color;
+    background-color: gray;
+}
+
+#home {
+    height: 900px;
+    width: 100%;
+    background-image: url('/images/mountains.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    position: fixed;
+//    overflow: hidden;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    line-height: 30px;
+    ul {
+        margin: 0;
+        list-style: none;
+        display: inline-block;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        justify-content: right;
+        align-items: stretch;
+        float: right;
+        li {
+            margin: 0 20px 0 0;
+            font-size: 1.3em;
+            color: white;
+            text-align: center;
+            a {
+                text-decoration: none;
+                color: white;
+                position: relative;
+                float: right;
+                margin: 10px 10px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                width: 100%;
+                line-height: 30px;
+            }
+            a:before {
+                transition: all .5s;
+            }
+            a:hover {
+                color: white;
+            }
+            a:hover:after {
+                width: 100%;
+            }
+            a:after {
+                transition: all .5s;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 0%;
+                content: '.';
+                color: transparent;
+                background: #fff;
+                height: 1px;
+            }
+        }
+    }
+    label {
+        margin: 0 40px 0 0;
+        font-size: 1.1em;
+        line-height: 80px;
+        display:none;
+        width: 26px;
+        float: right;
+    }
+    #toggle {
+        display: none;
+    }
+    @media only screen and (max-width: 500px) {
+        label {
+            display: inline-block;
+            cursor: pointer;
+            color: $secondary-color;
+        }
+        nav {
+            height: 400px;
+        }
+        ul {
+            text-align: center;
+            width: 100%;
+            display: none;
+            li{
+                a{
+                    line-height: 50px;
+                    clear: right;
+                    display: inline-block;
+                    margin: 0;
+                }
+            }
+        }
+        #toggle:checked + ul {
+            display: inline-block;
+        }
+    }
+}
